@@ -1,0 +1,251 @@
+@font-face {
+  font-family: "Rubik";
+  src: url(/assets/fonts/Rubik-VariableFont_wght.ttf);
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  [role="list"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-block-size: 100vh;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  img,
+  picture {
+    max-inline-size: 100%;
+    display: block;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer base {
+  :root {
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-black: #000000;
+    --clr-Grey-500: #626c7f;
+    --clr-Grey-50: #f4f6fa;
+    --clr-Blue-950: #2d3949;
+    --clr-Blue-900: #313e51;
+    --clr-Blue-850: #3b4d66;
+    --clr-Blue-500: #306aff;
+    --clr-Blue-300: #abc1e1;
+    --clr-Blue-100: #edf1f9;
+    --clr-Blue-50: #ebf0ff;
+    --clr-Green-500: #2fd887;
+    --clr-Green-100: #e0fdef;
+    --clr-Purple-600: #a729f5;
+    --clr-Purple-100: #f6e7ff;
+    --clr-Orange-400: #ff7e35;
+    --clr-Orange-50: #fff5ed;
+    --clr-Red-500: #ee5454;
+
+    --ff-body: "Rubik", sans-serif;
+    --ff-heading: "Rubik", sans-serif;
+
+    --fs-600: 1.4rem;
+    --fs-700: 1.8rem;
+    --fs-750: 2rem;
+    --fs-800: 3.6rem;
+    --fs-900: 4rem;
+    --fs-1000: 8.8rem;
+
+    @media (width > 760px) {
+      --fs-600: 2.4rem;
+      --fs-700: 2.8rem;
+      --fs-800: 2rem;
+      --fs-900: 6.4rem;
+      --fs-1000: 14.4rem;
+    }
+  }
+
+  :root {
+    --text-main: var(--clr-Blue-900);
+    --text-light: var(--clr-Grey-500);
+
+    --background-accent-main: var(--clr-Purple-600);
+
+    --background-light: var(--clr-white);
+    --background-main: var(--clr-Grey-50);
+
+    --font-size-heading-regular: var(--fs-900);
+    --font-size-heading-xl: var(--fs-1000);
+
+    --font-size-sm: var(--fs-600);
+    --font-size-regular: var(--fs-700);
+    --font-size-md: var(--fs-750);
+    --font-size-lg: var(--fs-800);
+
+    --border-radius: 2.4rem;
+
+    /* @media (prefers-color-scheme: dark) {
+      --text-main: var(--clr-brown-700);
+      --text-high-contrast: var(--clr-brown-900);
+
+      --background-accent-dark: var(--clr-green-300);
+      --background-extra-light: var(--clr-brown-100);
+      --background-light: var(--clr-brown-200);
+      --background-main: var(--clr-brown-300);
+      --background-dark: var(--clr-brown-400);
+      --background-extra-dark: var(--clr-brown-500);
+    } */
+  }
+
+  html {
+    font-family: var(--ff-body);
+    font-size: 62.5%;
+    /* line-height: 1.6; */
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    font-size: var(--font-size-regular);
+    color: var(--text-main);
+    background-color: var(--background-main);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ff-heading);
+    color: var(--text-main);
+  }
+
+  h1 {
+    font-size: var(--font-size-heading-regular);
+  }
+}
+
+@layer utilities {
+  [hidden] {
+    display: none;
+  }
+
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-main {
+    color: var(--text-main);
+  }
+
+  .text-light {
+    color: var(--text-light);
+  }
+
+  .bg-accent-main {
+    background-color: var(--background-accent-main);
+  }
+
+  .bg-light {
+    background-color: var(--background-light);
+  }
+
+  .bg-main {
+    background-color: var(--background-main);
+  }
+
+  .font-size-heading-regular {
+    font-size: var(--font-size-heading-regular);
+  }
+
+  .font-size-heading-xl {
+    font-size: var(--font-size-heading-xl);
+  }
+
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+
+  .font-size-regular {
+    font-size: var(--font-size-regular);
+  }
+
+  .font-size-md {
+    font-size: var(--font-size-md);
+  }
+
+  .font-size-lg {
+    font-size: var(--font-size-lg);
+  }
+
+  .border-radius {
+    border-radius: var(--border-radius);
+  }
+}
