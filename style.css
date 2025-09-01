@@ -110,12 +110,22 @@
     --fs-900: 4rem;
     --fs-1000: 8.8rem;
 
-    @media (width > 760px) {
+    --pattern-background: url(/assets/images/pattern-background-mobile-light.svg);
+
+    /* Tablet */
+    @media (width > 375px) {
       --fs-600: 2.4rem;
       --fs-700: 2.8rem;
       --fs-800: 2rem;
       --fs-900: 6.4rem;
       --fs-1000: 14.4rem;
+
+      --pattern-background: url(/assets/images/pattern-background-tablet-light.svg);
+    }
+
+    /* Desktop */
+    @media (width > 768px) {
+      --pattern-background: url(/assets/images/pattern-background-desktop-light.svg);
     }
   }
 
@@ -167,6 +177,9 @@
     font-size: var(--font-size-regular);
     color: var(--text-main);
     background-color: var(--background-main);
+    background-image: var(--pattern-background);
+    background-size: cover;
+    min-height: 100dvh;
   }
 
   h1,
