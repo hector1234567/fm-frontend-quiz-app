@@ -356,7 +356,7 @@
       height: 7.2rem;
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: 1em;
       background-color: var(--background-light);
       border-radius: var(--br-1);
       padding: 1.6rem;
@@ -401,6 +401,17 @@
       width: 50%;
       border-radius: 999rem;
     }
+  }
+
+  .badge {
+    width: 2.1em;
+    height: 2.1em;
+    background-color: var(--background-main);
+    color: var(--text-light);
+    border-radius: var(--border-radius-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
