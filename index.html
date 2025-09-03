@@ -16,21 +16,75 @@
   </head>
   <body>
     <!-- Quiz menu start -->
-    <header class="wrapper">
-      <nav>
-        <div class="theme-switch">
-          <input type="checkbox" id="theme" hidden />
-          <label for="theme">
-            <span class="visually-hidden">Theme switch toggle</span>
-          </label>
-        </div>
-      </nav>
-    </header>
+    <nav class="wrapper">
+      <div class="theme-switch">
+        <input type="checkbox" id="theme" hidden />
+        <label for="theme">
+          <span class="visually-hidden">Theme switch toggle</span>
+        </label>
+      </div>
+    </nav>
     <main class="wrapper">
-      <div class="hero">
+      <header>
+        <p>Pick a subject to get started.</p>
+        <h2>
+          Which of these color contrast ratios defines the minimum WCAG 2.1
+          Level AA requirement for normal text?
+        </h2>
+        <div class="progress"></div>
+      </header>
+      <ul role="list" class="quiz-selection">
+        <li>
+          <a href="/html"
+            ><div class="question-letter">A</div>
+            HTML</a
+          >
+        </li>
+        <li>
+          <a href="/css"
+            ><div class="question-letter">B</div>
+            CSS</a
+          >
+        </li>
+        <li>
+          <a href="/javascript"
+            ><div class="question-letter">C</div>
+            JavaScript</a
+          >
+        </li>
+        <li>
+          <a href="/accessibility"
+            ><div class="question-letter">D</div>
+            Accessibility</a
+          >
+        </li>
+      </ul>
+    </main>
+
+    <!-- Quiz menu end -->
+
+    <!-- Quiz question start -->
+
+    <!-- Question -->
+    <!-- number -->
+    <!-- of 10 A B C D Submit answer -->
+
+    <!-- Quiz question end -->
+
+    <!-- Quiz completed start -->
+
+    <!-- Quiz completed You scored... -->
+
+    <!-- score -->
+    <!-- out of 10 -->
+
+    <!-- Quiz completed end -->
+
+    <template id="main-page">
+      <header>
         <h1>Welcome to the <span>Frontend Quiz!</span></h1>
         <p>Pick a subject to get started.</p>
-      </div>
+      </header>
       <ul role="list" class="quiz-selection">
         <li>
           <a href="/html"
@@ -69,25 +123,6 @@
           >
         </li>
       </ul>
-    </main>
-
-    <!-- Quiz menu end -->
-
-    <!-- Quiz question start -->
-
-    <!-- Question -->
-    <!-- number -->
-    <!-- of 10 A B C D Submit answer -->
-
-    <!-- Quiz question end -->
-
-    <!-- Quiz completed start -->
-
-    <!-- Quiz completed You scored... -->
-
-    <!-- score -->
-    <!-- out of 10 -->
-
-    <!-- Quiz completed end -->
+    </template>
   </body>
 </html>
