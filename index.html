@@ -17,6 +17,13 @@
   <body>
     <!-- Quiz menu start -->
     <nav class="wrapper">
+      <div class="section-logo">
+        <img
+          src="/assets/images/icon-accessibility.svg"
+          alt=""
+          class="bg-purple"
+        />Accessibility
+      </div>
       <div class="theme-switch">
         <input type="checkbox" id="theme" hidden />
         <label for="theme">
@@ -33,32 +40,39 @@
         </h2>
         <div class="progress"></div>
       </header>
-      <ul role="list" class="quiz-selection">
-        <li>
-          <a href="/html"
-            ><div class="badge">A</div>
-            HTML</a
-          >
-        </li>
-        <li>
-          <a href="/css"
-            ><div class="badge">B</div>
-            CSS</a
-          >
-        </li>
-        <li>
-          <a href="/javascript"
-            ><div class="badge">C</div>
-            JavaScript</a
-          >
-        </li>
-        <li>
-          <a href="/accessibility"
-            ><div class="badge">D</div>
-            Accessibility</a
-          >
-        </li>
-      </ul>
+      <form class="quiz-selection">
+        <ul role="list">
+          <li>
+            <input type="radio" name="question-1" id="question-1-a" hidden />
+            <label for="question-1-a"
+              ><div class="badge">A</div>
+              HTML</label
+            >
+          </li>
+          <li>
+            <input type="radio" name="question-1" id="question-1-b" hidden />
+            <label for="question-1-b"
+              ><div class="badge">B</div>
+              CSS</label
+            >
+          </li>
+          <li>
+            <input type="radio" name="question-1" id="question-1-c" hidden />
+            <label for="question-1-c"
+              ><div class="badge">C</div>
+              JavaScript</label
+            >
+          </li>
+          <li>
+            <input type="radio" name="question-1" id="question-1-d" hidden />
+            <label for="question-1-d"
+              ><div class="badge">D</div>
+              Accessibility</label
+            >
+          </li>
+        </ul>
+        <button type="submit" class="button">Submit Answer</button>
+      </form>
     </main>
 
     <!-- Quiz menu end -->
@@ -85,44 +99,46 @@
         <h1>Welcome to the <span>Frontend Quiz!</span></h1>
         <p>Pick a subject to get started.</p>
       </header>
-      <ul role="list" class="quiz-selection">
-        <li>
-          <a href="/html"
-            ><img
-              src="/assets/images/icon-html.svg"
-              alt=""
-              class="bg-orange"
-            />HTML</a
-          >
-        </li>
-        <li>
-          <a href="/css"
-            ><img
-              src="/assets/images/icon-css.svg"
-              alt=""
-              class="bg-green"
-            />CSS</a
-          >
-        </li>
-        <li>
-          <a href="/javascript"
-            ><img
-              src="/assets/images/icon-js.svg"
-              alt=""
-              class="bg-blue"
-            />JavaScript</a
-          >
-        </li>
-        <li>
-          <a href="/accessibility"
-            ><img
-              src="/assets/images/icon-accessibility.svg"
-              alt=""
-              class="bg-purple"
-            />Accessibility</a
-          >
-        </li>
-      </ul>
+      <div class="quiz-selection">
+        <ul role="list">
+          <li>
+            <a href="/html"
+              ><img
+                src="/assets/images/icon-html.svg"
+                alt=""
+                class="bg-orange"
+              />HTML</a
+            >
+          </li>
+          <li>
+            <a href="/css"
+              ><img
+                src="/assets/images/icon-css.svg"
+                alt=""
+                class="bg-green"
+              />CSS</a
+            >
+          </li>
+          <li>
+            <a href="/javascript"
+              ><img
+                src="/assets/images/icon-js.svg"
+                alt=""
+                class="bg-blue"
+              />JavaScript</a
+            >
+          </li>
+          <li>
+            <a href="/accessibility"
+              ><img
+                src="/assets/images/icon-accessibility.svg"
+                alt=""
+                class="bg-purple"
+              />Accessibility</a
+            >
+          </li>
+        </ul>
+      </div>
     </template>
   </body>
 </html>
