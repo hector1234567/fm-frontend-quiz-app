@@ -53,12 +53,12 @@
     line-height: 1.1;
   }
 
-  h1,
+  /* h1,
   h2,
   h3,
   h4 {
     text-wrap: balance;
-  }
+  } */
 
   p,
   li {
@@ -106,7 +106,7 @@
     --fs-600: 1.4rem;
     --fs-700: 1.8rem;
     --fs-750: 2rem;
-    --fs-800: 3.6rem;
+    --fs-800: 2rem;
     --fs-900: 4rem;
     --fs-1000: 8.8rem;
 
@@ -119,7 +119,7 @@
     @media (width > 592px) {
       --fs-600: 2.4rem;
       --fs-700: 2.8rem;
-      --fs-800: 2rem;
+      --fs-800: 3.6rem;
       --fs-900: 6.4rem;
       --fs-1000: 14.4rem;
 
@@ -138,12 +138,14 @@
   :root {
     --text-main: var(--clr-Blue-900);
     --text-light: var(--clr-Grey-500);
+    --text-high-contrast: var(--clr-white);
 
     --background-accent-main: var(--clr-Purple-600);
 
     --background-light: var(--clr-white);
     --background-main: var(--clr-Grey-50);
 
+    --font-size-heading-small: var(--fs-800);
     --font-size-heading-regular: var(--fs-900);
     --font-size-heading-xl: var(--fs-1000);
 
@@ -206,6 +208,11 @@
       font-weight: 600;
     }
   }
+
+  h2 {
+    font-size: var(--font-size-heading-small);
+    font-weight: 500;
+  }
 }
 
 @layer layout {
@@ -221,12 +228,18 @@
     }
   }
 
+  .flow > * + * {
+    margin-top: var(--flow-spacer, 1em);
+  }
+
   nav {
-    height: 7.2rem;
+    padding-block: 1.6rem;
     display: flex;
-    justify-content: end;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 3.2rem;
+    flex-wrap: wrap-reverse;
+    gap: 3rem 1rem;
 
     @media (width > 592px) {
       height: 12.9rem;
@@ -239,10 +252,13 @@
   }
 
   main {
+    margin-bottom: 10rem;
+
     @media (width > 1132px) {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      gap: 12.8rem;
     }
   }
 }
@@ -311,11 +327,15 @@
     }
   }
 
-  .hero {
+  header {
     margin-bottom: 4rem;
 
     h1 {
       margin-bottom: 1.6rem;
+    }
+
+    h2 {
+      margin-block: 1em 1.3em;
     }
 
     p {
@@ -323,25 +343,50 @@
       font-style: italic;
       line-height: 150%;
     }
+
+    @media (width > 1132px) {
+      flex-basis: 50%;
+    }
+  }
+
+  .section-logo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: var(--font-size-regular);
+    color: var(--text-main);
+    font-weight: 600;
+
+    img {
+      border-radius: var(--br-2);
+      width: 2em;
+      height: 2em;
+      padding: 0.2em;
+    }
   }
 
   .quiz-selection {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
     flex-basis: 50%;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
 
-    a {
+    a,
+    label {
       height: 7.2rem;
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: 1em;
       background-color: var(--background-light);
       border-radius: var(--br-1);
       padding: 1.6rem;
       text-decoration: none;
       color: var(--text-main);
       font-weight: 500;
+      cursor: pointer;
 
       img {
         padding: 0.57rem;
@@ -350,20 +395,75 @@
       }
     }
 
-    @media (width > 592px) {
-      gap: 3.2rem;
+    input:checked + label {
+      border: 0.3rem solid var(--background-accent-main);
 
-      a {
+      .badge {
+        background-color: var(--background-accent-main);
+        color: var(--text-high-contrast);
+      }
+    }
+
+    @media (width > 592px) {
+      ul {
+        gap: 2.4rem;
+        margin-bottom: 3.2rem;
+      }
+
+      a,
+      label {
         height: 8.8rem;
       }
     }
 
     @media (width > 1132px) {
-      a {
+      a,
+      label {
         height: 10.4rem;
         padding: 2.4rem;
       }
     }
+  }
+
+  .progress {
+    --progress-percent: 90;
+
+    height: 1.6rem;
+    border-radius: 999rem;
+    background-color: var(--background-light);
+    padding: 0.4rem;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 100%;
+      background-color: var(--background-accent-main);
+      width: calc(var(--progress-percent) * 1%);
+      border-radius: 999rem;
+    }
+  }
+
+  .badge {
+    width: 2.1em;
+    height: 2.1em;
+    background-color: var(--background-main);
+    color: var(--text-light);
+    border-radius: var(--border-radius-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: var(--background-accent-main);
+    text-align: center;
+    color: var(--text-high-contrast);
+    padding: 0.6em;
+    border-radius: var(--border-radius-1);
+    font-size: var(--font-size-regular);
   }
 }
 
