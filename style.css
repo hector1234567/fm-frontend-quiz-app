@@ -115,6 +115,9 @@
     --border-radius-1: 1.2rem;
     --border-radius-2: 0.6rem;
 
+    --icon-sun: url(/assets/images/icon-sun-dark.svg);
+    --icon-moon: url(/assets/images/icon-moon-dark.svg);
+
     /* Tablet */
     @media (width > 592px) {
       --fs-600: 2.4rem;
@@ -157,17 +160,28 @@
     --br-1: var(--border-radius-1);
     --br-2: var(--border-radius-2);
 
-    /* @media (prefers-color-scheme: dark) {
-      --text-main: var(--clr-brown-700);
-      --text-high-contrast: var(--clr-brown-900);
+    &:has(#theme:checked) {
+      --text-main: var(--clr-white);
+      --text-light: var(--clr-Blue-300);
 
-      --background-accent-dark: var(--clr-green-300);
-      --background-extra-light: var(--clr-brown-100);
-      --background-light: var(--clr-brown-200);
-      --background-main: var(--clr-brown-300);
-      --background-dark: var(--clr-brown-400);
-      --background-extra-dark: var(--clr-brown-500);
-    } */
+      --background-main: var(--clr-Blue-900);
+      --background-light: var(--clr-Blue-850);
+
+      --pattern-background: url(/assets/images/pattern-background-mobile-dark.svg);
+
+      --icon-sun: url(/assets/images/icon-sun-light.svg);
+      --icon-moon: url(/assets/images/icon-moon-light.svg);
+
+      /* Tablet */
+      @media (width > 592px) {
+        --pattern-background: url(/assets/images/pattern-background-tablet-dark.svg);
+      }
+
+      /* Desktop */
+      @media (width > 1132px) {
+        --pattern-background: url(/assets/images/pattern-background-desktop-dark.svg);
+      }
+    }
   }
 
   html {
@@ -277,7 +291,7 @@
       display: block;
       width: var(--switch-height);
       height: 100%;
-      background-image: url(/assets/images/icon-sun-dark.svg);
+      background-image: var(--icon-sun);
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -288,7 +302,7 @@
       display: block;
       width: var(--switch-height);
       height: 100%;
-      background-image: url(/assets/images/icon-moon-dark.svg);
+      background-image: var(--icon-moon);
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -306,7 +320,7 @@
         width: calc(var(--switch-height) * 0.7);
         height: calc(var(--switch-height) * 0.7);
         border-radius: 999rem;
-        background-color: var(--background-light);
+        background-color: var(--text-high-contrast);
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -342,6 +356,7 @@
       font-size: var(--font-size-sm);
       font-style: italic;
       line-height: 150%;
+      color: var(--text-light);
     }
 
     @media (width > 592px) {
@@ -450,8 +465,8 @@
   .badge {
     width: 2.1em;
     height: 2.1em;
-    background-color: var(--background-main);
-    color: var(--text-light);
+    background-color: var(--clr-Grey-50);
+    color: var(--clr-Grey-500);
     border-radius: var(--border-radius-2);
     display: flex;
     align-items: center;
