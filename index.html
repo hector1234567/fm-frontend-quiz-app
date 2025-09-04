@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Quiz menu start -->
     <nav class="wrapper">
       <div class="section-logo">
         <img
@@ -33,21 +32,48 @@
     </nav>
     <main class="wrapper">
       <header>
-        <h1>Quiz completed <span>You scored...</span></h1>
+        <h1>Welcome to the <span>Frontend Quiz!</span></h1>
+        <p>Pick a subject to get started.</p>
       </header>
-      <div class="score">
-        <div class="score__container">
-          <div class="section-logo">
-            <img
-              src="/assets/images/icon-accessibility.svg"
-              alt=""
-              class="bg-purple"
-            />Accessibility
-          </div>
-          <p class="score__value">8</p>
-          <p class="score__text">out of 10</p>
-        </div>
-        <button type="submit" class="button">Play Again</button>
+      <div class="quiz-selection">
+        <ul role="list">
+          <li>
+            <a href="/html"
+              ><img
+                src="/assets/images/icon-html.svg"
+                alt=""
+                class="bg-orange"
+              />HTML</a
+            >
+          </li>
+          <li>
+            <a href="/css"
+              ><img
+                src="/assets/images/icon-css.svg"
+                alt=""
+                class="bg-green"
+              />CSS</a
+            >
+          </li>
+          <li>
+            <a href="/javascript"
+              ><img
+                src="/assets/images/icon-js.svg"
+                alt=""
+                class="bg-blue"
+              />JavaScript</a
+            >
+          </li>
+          <li>
+            <a href="/accessibility"
+              ><img
+                src="/assets/images/icon-accessibility.svg"
+                alt=""
+                class="bg-purple"
+              />Accessibility</a
+            >
+          </li>
+        </ul>
       </div>
     </main>
 
@@ -144,6 +170,28 @@
         </ul>
         <button type="submit" class="button">Submit Answer</button>
       </form>
+    </template>
+
+    <!-- Score Page -->
+
+    <template id="score-page">
+      <header>
+        <h1>Quiz completed <span>You scored...</span></h1>
+      </header>
+      <div class="score">
+        <div class="score__container">
+          <div class="section-logo">
+            <img
+              src="/assets/images/icon-accessibility.svg"
+              alt=""
+              class="bg-purple"
+            />Accessibility
+          </div>
+          <p class="score__value">8</p>
+          <p class="score__text">out of 10</p>
+        </div>
+        <button type="submit" class="button">Play Again</button>
+      </div>
     </template>
   </body>
 </html>
