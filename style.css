@@ -313,6 +313,7 @@
       background-color: var(--background-accent-main);
       border-radius: 999rem;
       position: relative;
+      cursor: pointer;
 
       &::before {
         content: "";
