@@ -1,12 +1,15 @@
 const Router = {
   init: () => {
-    document.querySelectorAll("a.navlink").forEach((a) => {
-      a.addEventListener("click", (event) => {
-        event.preventDefault();
+    // document.querySelectorAll("a.navlink").forEach((a) => {
+    //   a.addEventListener("click", (event) => {
+    //     event.preventDefault();
+    //     const url = event.target.getAttribute("href");
+    //     Router.go(url);
+    //   });
+    // });
 
-        const url = event.target.getAttribute("href");
-        Router.go(url);
-      });
+    window.addEventListener("popstate", (event) => {
+      Router.go(event.state.route, false);
     });
 
     Router.go(location.pathname);
@@ -18,35 +21,14 @@ const Router = {
     let pageElement = null;
     switch (route) {
       case "/":
+      case "/index.html":
         pageElement = document.createElement("menu-page");
         break;
-      case "/html":
+      case "/quiz":
         pageElement = document.createElement("question-page");
-        pageElement.dataset.section = "html";
-        pageElement.dataset.questionId = "1";
         break;
-      case "/css":
-        pageElement = document.createElement("question-page");
-        pageElement.dataset.section = "html";
-        pageElement.dataset.questionId = "1";
-        break;
-      case "/javascript":
-        pageElement = document.createElement("question-page");
-        pageElement.dataset.section = "html";
-        pageElement.dataset.questionId = "1";
-        break;
-      case "/accessibility":
-        pageElement = document.createElement("question-page");
-        pageElement.dataset.section = "html";
-        pageElement.dataset.questionId = "1";
-        break;
-      default:
-        if (route.startsWith("/score-")) {
-          pageElement = document.createElement("score-page");
-          pageElement.dataset.section = route.substring(
-            route.lastIndexOf("-") + 1
-          );
-        }
+      case "/score":
+        pageElement = document.createElement("score-page");
         break;
     }
     if (pageElement) {

@@ -95,6 +95,7 @@
     --clr-Green-500: #2fd887;
     --clr-Green-100: #e0fdef;
     --clr-Purple-600: #a729f5;
+    --clr-Purple-300: #cf97f3;
     --clr-Purple-100: #f6e7ff;
     --clr-Orange-400: #ff7e35;
     --clr-Orange-50: #fff5ed;
@@ -144,6 +145,7 @@
     --text-high-contrast: var(--clr-white);
 
     --background-accent-main: var(--clr-Purple-600);
+    --background-accent-light: var(--clr-Purple-300);
 
     --background-light: var(--clr-white);
     --background-main: var(--clr-Grey-50);
@@ -446,7 +448,7 @@
   }
 
   .progress {
-    --progress-percent: 90;
+    --progress-percent: 0;
 
     height: 1.6rem;
     border-radius: 999rem;
@@ -484,6 +486,10 @@
     padding: 0.6em;
     border-radius: var(--border-radius-1);
     font-size: var(--font-size-regular);
+
+    &:disabled {
+      background-color: var(--background-accent-light);
+    }
   }
 
   .score {
@@ -516,6 +522,12 @@
   .score__text {
     font-weight: 500;
     color: var(--text-light);
+  }
+
+  menu-page,
+  score-page,
+  question-page {
+    display: contents;
   }
 }
 
