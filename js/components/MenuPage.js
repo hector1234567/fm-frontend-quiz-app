@@ -10,6 +10,8 @@ export default class MenuPage extends HTMLElement {
     const content = template.content.cloneNode(true);
     this.appendChild(content);
     loadData();
+    app.store.correctAnswers = 0;
+    app.store.questionIndex = 1;
 
     window.addEventListener("appQuizzesChange", () => {
       this.render();
@@ -19,8 +21,7 @@ export default class MenuPage extends HTMLElement {
       const link = ev.target.closest("a.navlink");
       if (link) {
         ev.preventDefault();
-        app.router.go(link.getAttribute("href"), true);
-        app.store.questionIndex = 1;
+        app.router.go(link.getAttribute("href"), false);
         app.store.quizIndex = link.dataset.quizindex;
       }
     });

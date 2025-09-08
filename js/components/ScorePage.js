@@ -11,7 +11,6 @@ export default class ScorePage extends HTMLElement {
 
     this.querySelector(".button").addEventListener("click", (ev) => {
       app.router.go("/");
-      app.store.correctAnswers = 0;
     });
   }
 
