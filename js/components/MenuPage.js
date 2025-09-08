@@ -27,6 +27,8 @@ export default class MenuPage extends HTMLElement {
   }
 
   render() {
+    document.querySelector(".section-logo").innerHTML = "";
+
     if (app.store.quizzes) {
       const list = this.querySelector(".quiz-selection ul");
       list.innerHTML = "";

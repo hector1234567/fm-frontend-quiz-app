@@ -1,3 +1,5 @@
+import { escapeHtml } from "../utils.js";
+
 export default class QuestionPage extends HTMLElement {
   constructor() {
     super();
@@ -24,14 +26,22 @@ export default class QuestionPage extends HTMLElement {
 
     this.querySelector("form").addEventListener("submit", (ev) => {
       ev.preventDefault();
-      const formData = new FormData(this.querySelector("form.quiz-selection"));
-      const answer = formData.get("option");
 
-      if (answer === this.question.answer) {
-        alert("Correcto");
-      } else {
-        alert("False");
+      if (this.answer) {
+        this.answer = null;
+        if (app.store.questionIndex === this.quiz.questions.length) {
+          return app.router.go("/score");
+        }
+        return app.store.questionIndex++;
       }
+
+      const formData = new FormData(this.querySelector("form.quiz-selection"));
+      this.answer = formData.get("option");
+
+      if (this.answer === this.question.answer) {
+        app.store.correctAnswers++;
+      }
+      this.renderResult();
     });
 
     this.querySelector("form").addEventListener("change", (ev) => {
@@ -54,13 +64,16 @@ export default class QuestionPage extends HTMLElement {
     if (this.question) {
       const { question, options } = this.question;
 
+      this.querySelector('[type="submit"]').innerText = "Submit Answer";
+      this.querySelector('[type="submit"]').disabled = true;
+
       this.querySelector(
         "header p"
       ).innerText = `Question ${app.store.questionIndex} of ${this.quiz.questions.length}`;
       this.querySelector("header h2").innerText = question;
       this.querySelector(".progress").style.setProperty(
         "--progress-percent",
-        (app.store.questionIndex * 100) / this.quiz.questions.length
+        ((app.store.questionIndex - 1) * 100) / this.quiz.questions.length
       );
 
       const list = this.querySelector(".quiz-selection ul");
@@ -72,7 +85,35 @@ export default class QuestionPage extends HTMLElement {
             <input type="radio" name="option" id="option-${index}" value="${option}" hidden />
             <label for="option-${index}"
               ><div class="badge">${String.fromCharCode(65 + index)}</div>
-              ${option}</label
+              ${escapeHtml(option)}</label
+            >
+          </li>`
+        );
+      });
+    }
+  }
+
+  renderResult() {
+    if (this.question) {
+      const { options } = this.question;
+
+      this.querySelector('[type="submit"]').innerText = "Next Question";
+
+      const list = this.querySelector(".quiz-selection ul");
+      list.innerHTML = "";
+      options.forEach((option, index) => {
+        const isCorrectAnswer = option === this.question.answer;
+        const isSelectedAnswer = option === this.answer;
+        list.insertAdjacentHTML(
+          "beforeend",
+          `<li>
+            <input type="radio" name="option" id="option-${index}" disabled hidden />
+            <label for="option-${index}" 
+            class="${isCorrectAnswer && "correctAnswer"} ${
+            isSelectedAnswer && "selectedAnswer"
+          }"
+              ><div class="badge">${String.fromCharCode(65 + index)}</div>
+              ${escapeHtml(option)}</label
             >
           </li>`
         );

@@ -389,6 +389,7 @@
 
   .quiz-selection {
     flex-basis: 50%;
+
     ul {
       display: flex;
       flex-direction: column;
@@ -414,6 +415,56 @@
         padding: 0.57rem;
         border-radius: var(--br-2);
         height: 100%;
+      }
+
+      &.correctAnswer.selectedAnswer {
+        border: 0.3rem solid var(--clr-Green-500);
+
+        .badge {
+          background-color: var(--clr-Green-500);
+          color: var(--text-high-contrast);
+        }
+      }
+
+      &:not(.correctAnswer).selectedAnswer {
+        border: 0.3rem solid var(--clr-Red-500);
+
+        .badge {
+          background-color: var(--clr-Red-500);
+          color: var(--text-high-contrast);
+        }
+
+        &::after {
+          content: "";
+          width: 2.4rem;
+          height: 2.4rem;
+          margin-left: auto;
+          background-image: url(/assets/images/icon-incorrect.svg);
+          background-size: contain;
+          background-repeat: no-repeat;
+          flex-shrink: 0;
+
+          @media (width > 592px) {
+            width: 4rem;
+            height: 4rem;
+          }
+        }
+      }
+
+      &.correctAnswer::after {
+        content: "";
+        width: 2.4rem;
+        height: 2.4rem;
+        margin-left: auto;
+        background-image: url(/assets/images/icon-correct.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        flex-shrink: 0;
+
+        @media (width > 592px) {
+          width: 4rem;
+          height: 4rem;
+        }
       }
     }
 
@@ -474,6 +525,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   .button {
@@ -486,6 +538,7 @@
     padding: 0.6em;
     border-radius: var(--border-radius-1);
     font-size: var(--font-size-regular);
+    cursor: pointer;
 
     &:disabled {
       background-color: var(--background-accent-light);
